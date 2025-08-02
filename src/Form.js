@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-function Form({getAddedItem}) {
+function Form({adItem}) {
   const [inputtedItem, setInputtedItem] = useState("");
   const [itemQuantity, setItemQuantity] = useState(1);
 
   function handleSubmit(e) {
     e.preventDefault();
-    getAddedItem({description: inputtedItem, quantity: itemQuantity, packed: false, id: new Date().getTime()});
+    adItem({description: inputtedItem, quantity: itemQuantity, packed: false, id: new Date().getTime()});
     setInputtedItem("");
     setItemQuantity(1);
   }

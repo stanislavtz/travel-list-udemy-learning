@@ -13,14 +13,14 @@ const initialItems = [
 function App() {
   const [items, setItems] = useState(initialItems);
 
-  function onGetAddedItem(item) {
+  function onAddItem(item) {
     setItems(i => [...i, item]);
   }
 
   return (
     <div className="app">
       <Logo />
-      <Form getAddedItem={onGetAddedItem}/>
+      <Form addItem={onAddItem}/>
       <PackingList items={items}/>
       <Stats />
     </div>
