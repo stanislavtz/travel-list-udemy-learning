@@ -1,8 +1,15 @@
+import Logo from "./Logo";
+import Form from "./Form";
+import PackingList from "./PackinList";
+import Stats from "./Stats";
 
 function App() {
   return (
     <div className="app">
-      Hello React from Test Branch!
+      <Logo />
+      <Form />
+      <PackingList />
+      <Stats />
     </div>
   );
 }
