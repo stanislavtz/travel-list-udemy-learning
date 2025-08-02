@@ -6,13 +6,15 @@ function Form({getAddedItem}) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    getAddedItem({description: inputtedItem, quantity: itemQuantity, packed: false});
+    getAddedItem({description: inputtedItem, quantity: itemQuantity, packed: false, id: new Date().now()});
+    setInputtedItem("");
+    setItemQuantity(1);
   }
 
   return (
     <form className="add-form" onSubmit={handleSubmit}>
       <h3>What do you need for your trip?</h3>
-      <select value={itemQuantity} onChange={(e) => setItemQuantity(e.target.value)}>
+      <select value={itemQuantity} onChange={(e) => setItemQuantity(+e.target.value)}>
         {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
           <option key={num} value={num}>
             {num}

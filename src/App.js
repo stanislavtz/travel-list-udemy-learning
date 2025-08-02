@@ -14,7 +14,7 @@ function App() {
   const [items, setItems] = useState(initialItems);
 
   function onGetAddedItem(item) {
-    setItems(i => [...i, {...item, id: items.length + 1}]);
+    setItems(i => [...i, item]);
   }
 
   return (
