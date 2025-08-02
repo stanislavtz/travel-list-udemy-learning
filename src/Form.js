@@ -6,7 +6,7 @@ function Form({getAddedItem}) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    getAddedItem({description: inputtedItem, quantity: itemQuantity, packed: false, id: new Date().now()});
+    getAddedItem({description: inputtedItem, quantity: itemQuantity, packed: false, id: new Date().getTime()});
     setInputtedItem("");
     setItemQuantity(1);
   }
