@@ -18,10 +18,7 @@ function App() {
   }
 
   function handleDeleteItem(id) {
-    setItems(items => {
-      const index = items.findIndex(item => item.id === id);
-      return items.slice(0, index).concat(items.slice(index + 1));
-    })
+    setItems(items => items.filter(item => item.id !== id));
   }
 
   return (
