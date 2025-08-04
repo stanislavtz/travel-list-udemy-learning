@@ -21,14 +21,18 @@ function App() {
     setItems((items) => items.filter((item) => item.id !== id));
   }
 
-  function handleSelectItem(id, isChecked) {
-    setItems((items) => {
-      const searchedItemIndex = items.findIndex((i) => i.id === id);
-      const updatedItems = items.slice();
-      updatedItems[searchedItemIndex].packed = isChecked;
+  // function handleToggleSelect(id, isPacked) {
+  //   setItems((items) => {
+  //     const searchedItemIndex = items.findIndex((i) => i.id === id);
+  //     const updatedItems = items.slice();
+  //     updatedItems[searchedItemIndex].packed = isPacked;
 
-      return updatedItems;
-    });
+  //     return updatedItems;
+  //   });
+  // }
+
+  function handleToggleItem(id) {
+    setItems(items => items.map(item => item.id === id ? {...item, packed: !item.packed} : {...item}));
   }
 
   return (
@@ -38,7 +42,7 @@ function App() {
       <PackingList
         items={items}
         onDeleteItem={handleDeleteItem}
-        onSelectItem={handleSelectItem}
+        onToggleItem={handleToggleItem}
       />
       <Stats />
     </div>

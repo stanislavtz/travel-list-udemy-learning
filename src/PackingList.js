@@ -1,10 +1,10 @@
 import Item from "./Item";
 
-function PackingList({items, onDeleteItem, onSelectItem}) {
+function PackingList({items, onDeleteItem, onToggleItem}) {
   return (
     <div className="list">
       <ul>
-        {items.length === 0 && <p>No items added yet!</p>}
+        {items.length === 0 && <p style={{textAlign: "center"}}>No items added yet!</p>}
         {items.map((item) => (
           <Item
             key={item.id}
@@ -13,7 +13,7 @@ function PackingList({items, onDeleteItem, onSelectItem}) {
             quantity={item.quantity}
             packed={item.packed}
             onDeleteItem={onDeleteItem}
-            onSelectItem={onSelectItem}
+            onToggleItem={onToggleItem}
           />
         ))}
       </ul>

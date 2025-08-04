@@ -1,20 +1,14 @@
-import { useState } from "react";
-
-function Item({ id, description, quantity, packed, onDeleteItem, onSelectItem }) {
-  const [checked, setChecked] = useState(false);
-
-  function handleSelectCheckBox() {
-    setChecked(c => {
-      c = !c;
-      onSelectItem(id, c);
-
-      return c;
-    });
-  }
-
+function Item({
+  id,
+  description,
+  quantity,
+  packed,
+  onDeleteItem,
+  onToggleItem,
+}) {
   return (
     <li>
-      <input type="checkbox" value={checked} onChange={handleSelectCheckBox}/>
+      <input type="checkbox" value={packed} onChange={() => onToggleItem(id)} />
       <span style={packed ? { textDecoration: "line-through" } : null}>
         {quantity} {description}
       </span>
