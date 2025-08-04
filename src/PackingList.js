@@ -4,7 +4,7 @@ function PackingList({items, onDeleteItem}) {
   return (
     <div className="list">
       <ul>
-        {items.length === 0 && <p>No added items yet!</p>}
+        {items.length === 0 && <p>No items added yet!</p>}
         {items.map((item) => (
           <Item
             key={item.id}
