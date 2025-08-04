@@ -13,15 +13,22 @@ const initialItems = [
 function App() {
   const [items, setItems] = useState(initialItems);
 
-  function onAddItem(item) {
-    setItems(i => [...i, item]);
+  function handleAddItem(newItem) {
+    setItems(items => [...items, newItem]);
+  }
+
+  function handleDeleteItem(id) {
+    setItems(items => {
+      const index = items.findIndex(item => item.id === id);
+      return items.slice(0, index).concat(items.slice(index + 1));
+    })
   }
 
   return (
     <div className="app">
       <Logo />
-      <Form addItem={onAddItem}/>
-      <PackingList items={items}/>
+      <Form onАddItem={handleAddItem}/>
+      <PackingList items={items} onDeleteItem={handleDeleteItem}/>
       <Stats />
     </div>
   );
