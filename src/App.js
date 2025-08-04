@@ -14,18 +14,32 @@ function App() {
   const [items, setItems] = useState([]);
 
   function handleAddItem(newItem) {
-    setItems(items => [...items, newItem]);
+    setItems((items) => [...items, newItem]);
   }
 
   function handleDeleteItem(id) {
-    setItems(items => items.filter(item => item.id !== id));
+    setItems((items) => items.filter((item) => item.id !== id));
+  }
+
+  function handleSelectItem(id, isChecked) {
+    setItems((items) => {
+      const searchedItemIndex = items.findIndex((i) => i.id === id);
+      const updatedItems = items.slice();
+      updatedItems[searchedItemIndex].packed = isChecked;
+
+      return updatedItems;
+    });
   }
 
   return (
     <div className="app">
       <Logo />
-      <Form onАddItem={handleAddItem}/>
-      <PackingList items={items} onDeleteItem={handleDeleteItem}/>
+      <Form onАddItem={handleAddItem} />
+      <PackingList
+        items={items}
+        onDeleteItem={handleDeleteItem}
+        onSelectItem={handleSelectItem}
+      />
       <Stats />
     </div>
   );

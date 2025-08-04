@@ -1,6 +1,6 @@
 import Item from "./Item";
 
-function PackingList({items, onDeleteItem}) {
+function PackingList({items, onDeleteItem, onSelectItem}) {
   return (
     <div className="list">
       <ul>
@@ -13,6 +13,7 @@ function PackingList({items, onDeleteItem}) {
             quantity={item.quantity}
             packed={item.packed}
             onDeleteItem={onDeleteItem}
+            onSelectItem={onSelectItem}
           />
         ))}
       </ul>
