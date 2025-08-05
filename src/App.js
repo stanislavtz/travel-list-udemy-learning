@@ -1,7 +1,7 @@
-import Logo from "./Logo";
-import Form from "./Form";
-import PackingList from "./PackingList";
-import Stats from "./Stats";
+import Logo from "./components/Logo";
+import Form from "./components/Form";
+import PackingList from "./components/PackingList";
+import Stats from "./components/Stats";
 import { useState } from "react";
 
 function App() {
