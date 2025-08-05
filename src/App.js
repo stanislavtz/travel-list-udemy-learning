@@ -16,18 +16,16 @@ function App() {
     setItems((items) => items.filter((item) => item.id !== id));
   }
 
-  // function handleToggleSelect(id, isPacked) {
-  //   setItems((items) => {
-  //     const searchedItemIndex = items.findIndex((i) => i.id === id);
-  //     const updatedItems = items.slice();
-  //     updatedItems[searchedItemIndex].packed = isPacked;
-
-  //     return updatedItems;
-  //   });
-  // }
-
   function handleToggleItem(id) {
-    setItems(items => items.map(item => item.id === id ? {...item, packed: !item.packed} : {...item}));
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : { ...item }
+      )
+    );
+  }
+
+  function handleClearList() {
+    if (window.confirm("Are you sure?")) setItems([]);
   }
 
   return (
@@ -38,8 +36,9 @@ function App() {
         items={items}
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
+        onClearList={handleClearList}
       />
-      <Stats />
+      <Stats items={items} />
     </div>
   );
 }
