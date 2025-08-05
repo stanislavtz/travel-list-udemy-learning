@@ -8,7 +8,6 @@ function App() {
   const [items, setItems] = useState([]);
 
   function handleAddItem(newItem) {
-    console.log(newItem);
     setItems((items) => [...items, newItem]);
   }
 
