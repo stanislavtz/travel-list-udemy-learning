@@ -32,7 +32,15 @@ function App() {
   // }
 
   function handleToggleItem(id) {
-    setItems(items => items.map(item => item.id === id ? {...item, packed: !item.packed} : {...item}));
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : { ...item }
+      )
+    );
+  }
+
+  function handleClearList() {
+    if (window.confirm("Are you sure?")) setItems([]);
   }
 
   return (
@@ -43,8 +51,9 @@ function App() {
         items={items}
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
+        onClearList={handleClearList}
       />
-      <Stats />
+      <Stats items={items} />
     </div>
   );
 }
